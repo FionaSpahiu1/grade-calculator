@@ -1,0 +1,58 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    background-color: #f0f0f0;
+}
+
+h1 {
+    text-align: center;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+th, td {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+.grade-input {
+    margin-bottom: 10px;
+}
+
+#result {
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+#submitButton {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#submitButton:hover {
+    background-color: #45a049;
+}
+
+#finalGrade {
+    margin-top: 20px;
+    font-size: 18px;
+}
+
+#warning {
+    color: red;
+    margin-top: 10px;
+    font-weight: bold;
+}
