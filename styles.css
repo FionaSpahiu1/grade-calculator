@@ -28,12 +28,7 @@ th {
     margin-bottom: 10px;
 }
 
-#result {
-    font-weight: bold;
-    margin-top: 10px;
-}
-
-#submitButton {
+#submitButton1, #submitButton2, #submitButton3 {
     background-color: #4CAF50;
     color: white;
     padding: 10px 20px;
@@ -42,16 +37,16 @@ th {
     cursor: pointer;
 }
 
-#submitButton:hover {
+#submitButton1:hover, #submitButton2:hover, #submitButton3:hover {
     background-color: #45a049;
 }
 
-#finalGrade {
+#finalGrade1, #finalGrade2, #finalGrade3 {
     margin-top: 20px;
     font-size: 18px;
 }
 
-#warning {
+#warning1, #warning2, #warning3 {
     color: red;
     margin-top: 10px;
     font-weight: bold;
