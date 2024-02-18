@@ -1,4 +1,5 @@
-// Script for the first calculator (Course Calculator)
+// Script for the first calculator (Assignment Calculator)
+
 
 function addGradeSlot1() {
     const gradeTable = document.querySelector('#assignmentCalculator table');
