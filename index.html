@@ -3,52 +3,103 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Grade Calculator</title>
+    <title>Grade Calculators</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-<h1>Grade Calculator</h1>
+<h1>Grade Calculators</h1>
 
-<form id="gradeForm">
-    <table>
-        <tr>
-            <th>Grade Type</th>
-            <th>Weight (%)</th>
-            <th>Your Grade</th>
-            <th>Action</th>
-        </tr>
-        <tr class="grade-input">
-            <td><input type="text" class="gradeType" placeholder="Assignment, Quiz, Exam"></td>
-            <td><input type="number" class="gradeWeight" min="0" max="100" step="0.01"></td>
-            <td><input type="number" class="grade" min="0" max="100" step="0.01"></td>
-            <td><button type="button" onclick="removeGradeSlot(this)">Remove</button></td>
-        </tr>
-        <tr class="grade-input">
-            <td><input type="text" class="gradeType" placeholder="Assignment, Quiz, Exam"></td>
-            <td><input type="number" class="gradeWeight" min="0" max="100" step="0.01"></td>
-            <td><input type="number" class="grade" min="0" max="100" step="0.01"></td>
-            <td><button type="button" onclick="removeGradeSlot(this)">Remove</button></td>
-        </tr>
-        <tr class="grade-input">
-            <td><input type="text" class="gradeType" placeholder="Assignment, Quiz, Exam"></td>
-            <td><input type="number" class="gradeWeight" min="0" max="100" step="0.01"></td>
-            <td><input type="number" class="grade" min="0" max="100" step="0.01"></td>
-            <td><button type="button" onclick="removeGradeSlot(this)">Remove</button></td>
-        </tr>
-    </table>
-    <div>
-    <button type="button" onclick="addGradeSlot()">Add Grade Slot</button>
-    </div>
-    <hr>
-    <div>
-    <button id="submitButton" type="button" onclick="calculateGrade()">Calculate Final Grade</button>
-    </div>
-    <div id="warning"></div>
-    <div id="finalGrade"></div>
+<section id="assignmentCalculator">
+    <h2>Assignment Calculator</h2>
 
-    <script src="script.js"></script>
-</form>
+    <form id="gradeForm1">
+        <table>
+            <tr>
+                <th>Grade Type</th>
+                <th>Weight (%)</th>
+                <th>Your Grade</th>
+                <th>Action</th>
+            </tr>
+            <tr class="grade-input">
+                <td><input type="text" class="gradeType" placeholder="Assignment, Quiz, Exam"></td>
+                <td><input type="number" class="gradeWeight" min="0" max="100" step="0.01"></td>
+                <td><input type="number" class="grade" min="0" max="100" step="0.01"></td>
+                <td><button type="button" onclick="removeGradeSlot1(this)">Remove</button></td>
+            </tr>
+        </table>
+
+        <button type="button" onclick="addGradeSlot1()">Add Grade Slot</button>
+
+        <button id="submitButton1" type="button" onclick="calculateGrade1()">Calculate Final Grade</button>
+
+        <div id="warning1"></div>
+        <div id="finalGrade1"></div>
+    </form>
+
+    <script src="script1.js"></script>
+</section>
+
+<section id="semesterCalculator">
+    <h2>Semester Calculator</h2>
+
+    <form id="gradeForm2">
+        <table>
+            <tr>
+                <th>Grade Type</th>
+                <th>Weight (%)</th>
+                <th>Your Grade</th>
+                <th>Action</th>
+            </tr>
+            <tr class="grade-input">
+                <td><input type="text" class="gradeType" placeholder="Assignment, Quiz, Exam"></td>
+                <td><input type="number" class="gradeWeight" min="0" max="100" step="0.01"></td>
+                <td><input type="number" class="grade" min="0" max="100" step="0.01"></td>
+                <td><button type="button" onclick="removeGradeSlot2(this)">Remove</button></td>
+            </tr>
+        </table>
+
+        <button type="button" onclick="addGradeSlot2()">Add Grade Slot</button>
+
+        <button id="submitButton2" type="button" onclick="calculateGrade2()">Calculate Final Grade</button>
+
+        <div id="warning2"></div>
+        <div id="finalGrade2"></div>
+    </form>
+
+    <script src="script2.js"></script>
+</section>
+
+<section id="totalGradeCalculator">
+    <h2>Total Grade Calculator</h2>
+
+    <form id="gradeForm3">
+        <table>
+            <tr>
+                <th>Grade Type</th>
+                <th>Weight (%)</th>
+                <th>Your Grade</th>
+                <th>Action</th>
+            </tr>
+            <tr class="grade-input">
+                <td><input type="text" class="gradeType" placeholder="Assignment, Quiz, Exam"></td>
+                <td><input type="number" class="gradeWeight" min="0" max="100" step="0.01"></td>
+                <td><input type="number" class="grade" min="0" max="100" step="0.01"></td>
+                <td><button type="button" onclick="removeGradeSlot3(this)">Remove</button></td>
+            </tr>
+        </table>
+
+        <button type="button" onclick="addGradeSlot3()">Add Grade Slot</button>
+
+        <button id="submitButton3" type="button" onclick="calculateGrade3()">Calculate Final Grade</button>
+
+        <div id="warning3"></div>
+        <div id="finalGrade3"></div>
+    </form>
+
+    <script src="script3.js"></script>
+</section>
 
 </body>
 </html>
+
