@@ -1,11 +1,10 @@
 import tkinter as tk
 from tkinter import simpledialog, messagebox
 
-
 class GradeTableApp:
     def __init__(self, master):
         self.master = master
-        self.master.title(" Class Grade Calculator")
+        self.master.title("Class Grade Calculator")
 
         self.column_names = ["Assignment 1", "Assignment 2"]
         self.data_entries = {}
@@ -120,6 +119,7 @@ def destroy_window(event):
     root.destroy()
 # Create the main window
 root = tk.Tk()
+root.geometry("400x400")  # Set the width and height of the window
 app = GradeTableApp(root)
 root.bind("<KeyPress-z>", destroy_window)
 root.mainloop()
