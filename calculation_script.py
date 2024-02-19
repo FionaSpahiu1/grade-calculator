@@ -65,11 +65,13 @@ class GradeTableApp:
                 weights.append(weight)
                 grades.append(grade)
 
-            average_grade = sum(grades) / len(grades)
+            average_grade = sum(w * grade for w, grade in zip(weights, grades)) / sum(weights)
             self.result_label.config(text=f"Average Grade: {average_grade:.2f}")
 
+            if sum(weights) != 100:
+                messagebox.showerror("Error", "The percentage of total weights must be 100% .")
         except ValueError:
-            messagebox.showerror("Error", "Please note the total percentage weight must be 100%.")
+            messagebox.showerror("Error", "Please input values in empty slot(s).")
 
     def convert_to_gpa(self):
         try:
@@ -86,7 +88,7 @@ class GradeTableApp:
                 weights.append(weight)
                 grades.append(grade)
 
-            average_grade = sum(grades) / len(grades)
+            average_grade = sum(w * grade for w, grade in zip(weights, grades)) / sum(weights)
             gpa = self.calculate_gpa(average_grade)
             self.gpa_result_label.config(text=f"Equivalent GPA: {gpa:.2f}")
 
