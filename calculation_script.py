@@ -69,7 +69,7 @@ class GradeTableApp:
             self.result_label.config(text=f"Average Grade: {average_grade:.2f}")
 
             if sum(weights) != 100:
-                messagebox.showerror("Error", "The percentage of total weights must be 100% .")
+                messagebox.showerror("Error", "The total percentage weight must be 100% .")
         except ValueError:
             messagebox.showerror("Error", "Please input values in empty slot(s).")
 
@@ -121,7 +121,7 @@ def destroy_window(event):
     root.destroy()
 # Create the main window
 root = tk.Tk()
-root.geometry("400x400")  # Set the width and height of the window
+root.geometry("600x400")  # Set the width and height of the window
 app = GradeTableApp(root)
 root.bind("<KeyPress-z>", destroy_window)
 root.mainloop()
