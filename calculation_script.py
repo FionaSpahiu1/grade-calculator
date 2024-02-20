@@ -62,12 +62,17 @@ class GradeTableApp:
                 weight = float(weight_entry.get())
                 grade = float(grade_entry.get())
 
+                if grade > 100:
+                    messagebox.showerror("Error", "The highest grade must be 100% .")
+                    return 
                 weights.append(weight)
                 grades.append(grade)
 
             average_grade = sum(w * grade for w, grade in zip(weights, grades)) / sum(weights)
             self.result_label.config(text=f"Average Grade: {average_grade:.2f}")
 
+
+        
             if sum(weights) != 100:
                 messagebox.showerror("Error", "The total percentage weight must be 100% .")
         except ValueError:
