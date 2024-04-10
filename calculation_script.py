@@ -12,19 +12,22 @@ class GradeTableApp:
         self.create_table_layout()
 
         add_column_button = tk.Button(master, text="Add Column", command=self.add_column)
-        add_column_button.grid(row=4, column=0, columnspan=3)
+        add_column_button.grid(row=4, column=0, columnspan=2)
+
+        remove_column_button = tk.Button(master, text="Remove Column", command=self.remove_column)
+        remove_column_button.grid(row=4, column=2, columnspan=2)
 
         calculate_button = tk.Button(master, text="Calculate", command=self.calculate_grades)
-        calculate_button.grid(row=5, column=0, columnspan=3)
+        calculate_button.grid(row=5, column=0, columnspan=4)
 
         self.result_label = tk.Label(master, text="")
-        self.result_label.grid(row=6, column=0, columnspan=3)
+        self.result_label.grid(row=6, column=0, columnspan=4)
 
         gpa_button = tk.Button(master, text="Convert to GPA", command=self.convert_to_gpa)
-        gpa_button.grid(row=7, column=0, columnspan=3)
+        gpa_button.grid(row=7, column=0, columnspan=4)
 
         self.gpa_result_label = tk.Label(master, text="")
-        self.gpa_result_label.grid(row=8, column=0, columnspan=3)
+        self.gpa_result_label.grid(row=8, column=0, columnspan=4)
 
     def create_table_layout(self):
         tk.Label(self.master, text="").grid(row=0, column=0)
@@ -50,6 +53,29 @@ class GradeTableApp:
                 entry.grid(row=row, column=len(self.column_names))
                 self.data_entries[(row, len(self.column_names))] = entry
 
+    def remove_column(self):
+        if len(self.column_names) > 2:
+            column_to_remove = simpledialog.askstring("Remove Column", "Enter Column Name to Remove:")
+            if column_to_remove in self.column_names:
+                index = self.column_names.index(column_to_remove)
+                self.column_names.pop(index)
+
+                for row in range(1, 3):
+                    entry = self.data_entries.pop((row, index + 1))
+                    entry.grid_forget()
+
+                for col in range(index + 2, len(self.column_names) + 2):
+                    for row in range(1, 3):
+                        self.data_entries[(row, col - 1)] = self.data_entries.pop((row, col))
+                        self.data_entries[(row, col - 1)].grid(row=row, column=col - 1)
+                self.master.grid_columnconfigure(col, weight=1)
+
+            else:
+                messagebox.showerror("Error", "Column not found!")
+
+        else:
+            messagebox.showerror("Error", "Cannot remove last two columns!")
+
     def calculate_grades(self):
         try:
             weights = []
@@ -71,8 +97,6 @@ class GradeTableApp:
             average_grade = sum(w * grade for w, grade in zip(weights, grades)) / sum(weights)
             self.result_label.config(text=f"Average Grade: {average_grade:.2f}")
 
-
-        
             if sum(weights) != 100:
                 messagebox.showerror("Error", "The total percentage weight must be 100% .")
         except ValueError:
@@ -124,6 +148,7 @@ class GradeTableApp:
 
 def destroy_window(event):
     root.destroy()
+
 # Create the main window
 root = tk.Tk()
 root.geometry("600x400")  # Set the width and height of the window
